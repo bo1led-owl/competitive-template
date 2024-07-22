@@ -1,0 +1,5 @@
+Diagnostics:
+  	UnusedIncludes: None
+CompileFlags:
+	Add:
+		[-DLOCAL, -std=c++20, -Wall, -Wno-unused]
