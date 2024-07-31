@@ -5,7 +5,7 @@ CXXFLAGS = -std=c++20 -DLOCAL -lm -Wall -Wno-sign-compare -g -fsanitize=address,
 default: check
 
 check:
-	checker tests $(OUT)/main
+	checker run $(OUT)/main
 
 run: $(OUT)
 	build/main
