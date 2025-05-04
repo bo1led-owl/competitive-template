@@ -2,17 +2,23 @@
 #include <immintrin.h>
 using namespace std;
 
+namespace {
 using uint = unsigned int;
 using ll = long long;
 using ull = unsigned long long;
 
 template <typename T>
+void dbg(const T& x) {
+#ifndef ONLINE_JUDGE
+    cerr << "\tdbg: " << x << '\n';
+#endif
+}
+
+template <typename T>
 T ipow(T n, T p) {
     T res = 1;
     while (p > 0) {
-        if (p % 2 == 1) {
-            res *= n;
-        }
+        if (p % 2 == 1) { res *= n; }
         n *= n;
         p /= 2;
     }
@@ -20,18 +26,15 @@ T ipow(T n, T p) {
 }
 
 template <typename T>
-inline T sqr(const T n) {
+inline T sqr(T n) {
     return n * n;
 }
 
 constexpr ull MOD = ull(1e9 + 7);
 constexpr size_t SIZE = size_t(2e5);
 
-void solve() {
-    int a, b;
-    cin >> a >> b;
-    cout << a + b << '\n';
-}
+void solve() {}
+}  // namespace
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -47,6 +50,4 @@ int main() {
     // while (t--) {
     solve();
     // }
-
-    return 0;
 }

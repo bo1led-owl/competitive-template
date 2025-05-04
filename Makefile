@@ -1,20 +1,19 @@
-OUT = build
-CXX = g++
-CXXFLAGS = -std=c++20 -DLOCAL -lm -Wall -Wno-sign-compare -g -fsanitize=address,undefined
+CXX = ccache clang++
+CXXFLAGS = -std=c++23 -DLOCAL -lm -g -fsanitize=address,undefined
 
 default: check
 
-check:
-	checker run $(OUT)/main
+check: ./build/main
+	checker run ./build/main
 
-run: $(OUT)
-	build/main
+run: ./build/main
+	./build/main
 
-%: %.cpp $(OUT)
-	$(CXX) $(CXXFLAGS) $< -o $(OUT)/main
+./build/main: main.cpp ./build
+	$(CXX) $(CXXFLAGS) main.cpp -o ./build/main
 
-$(OUT):
-	mkdir $(OUT)
+./build:
+	mkdir build
 
 clean:
-	rm -rf $(OUT)
+	rm -rf build
